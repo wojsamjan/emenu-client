@@ -1,34 +1,40 @@
+import axios from 'axios';
+
 import React, { Component } from 'react';
-import Menus from './components/Menus'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Header from './components/layout/Header';
+import Menus from './components/Menus';
+import MenuItemDetail from './components/MenuItemDetail';
 
 import './App.css';
 
+
 class App extends Component {
   state = {
-    menus: [
-      {
-        id: 1,
-        name: 'Menu 1',
-        description: 'Menu 1 - description'
-      },
-      {
-        id: 2,
-        name: 'Menu 2',
-        description: 'Menu 2 - description'
-      },
-      {
-        id: 3,
-        name: 'Menu 3',
-        description: 'Menu 3 - description'
-      }
-    ]
+    menus: []
+  }
+
+  componentDidMount() {
+    axios.get('http://127.0.0.1:8000/api/menu/menus/?format=json')
+      .then(res => this.setState({ menus: res.data.filter(m => m.meals.length !== 0) }));
   }
 
   render() {
     return (
-      <div className="App">
-        <Menus menus={this.state.menus} />
-      </div>
+      <Router>
+        <div className="App">
+          <div className="container">
+            <Header />
+            <Route exact path="/menus/" render={props => (
+              <React.Fragment>
+                <Menus menus={this.state.menus} />
+              </React.Fragment>
+            )} />
+            <Route exact path="/menus/:id" component={MenuItemDetail} />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
