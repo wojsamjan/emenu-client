@@ -1,13 +1,36 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 export class MenuItem extends Component {
+  changeRoute = (id) => {
+    this.props.history.push(`/menus/${id}`);
+  }
+
   render() {
+    const { id, name, description } = this.props.menu;
     return (
-      <div>
-        <p>{this.props.menu.name}</p>
+      <div style={ menuItemStyle }  onClick={ this.changeRoute.bind(this, id) }>
+        <h3>{ name }</h3>
+        <p>
+          { description }
+        </p>
       </div>
     )
   }
 }
 
-export default MenuItem
+// PropTypes
+MenuItem.propTypes = {
+  menu: PropTypes.object.isRequired
+}
+
+const menuItemStyle = {
+  background: '#f4f4f4',
+  padding: '10px',
+  borderBottom: '1px #ccc dotted',
+  cursor: 'pointer'
+}
+
+export default withRouter(MenuItem)
