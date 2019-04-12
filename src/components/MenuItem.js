@@ -9,13 +9,11 @@ export class MenuItem extends Component {
   }
 
   render() {
-    const { id, name, description } = this.props.menu;
+    const { id, name, description, meals } = this.props.menu;
     return (
       <div style={ menuItemStyle }  onClick={ this.changeRoute.bind(this, id) }>
         <h3>{ name }</h3>
-        <p>
-          { description }
-        </p>
+        <p>ID: { id } | { description } | { meals.length }</p>
       </div>
     )
   }
