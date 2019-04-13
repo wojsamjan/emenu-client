@@ -17,6 +17,8 @@ class App extends Component {
     menus: [],
     sortedBy: 'id',
     asc: true,
+    currentPage: 1,
+    perPage: 5
   }
 
   componentDidMount() {
@@ -24,6 +26,18 @@ class App extends Component {
       .then(res => this.setState({ menus: res.data
         .filter(m => m.meals.length !== 0)
         .sort((a, b) => a.id - b.id) }));
+  }
+
+  nextPage = (e) => {
+    this.setState({
+      currentPage: this.state.currentPage + 1
+    });
+  }
+
+  prevPage = (e) => {
+    this.setState({
+      currentPage: this.state.currentPage - 1
+    });
   }
 
   sortByName = (p) => {
@@ -73,7 +87,14 @@ class App extends Component {
   }
 
   render() {
-    const { menus } = this.state;
+    const { menus, currentPage, perPage } = this.state;
+
+    // Displaying current menus
+    const lastMenuIndex = currentPage * perPage;
+    const firstMenuIndex = lastMenuIndex - perPage;
+    const currentMenus = menus.slice(firstMenuIndex, lastMenuIndex);
+
+    const lastPage = Math.ceil(menus.length / perPage);
 
     return (
       <Router>
@@ -83,7 +104,13 @@ class App extends Component {
             <Route exact path="/menus/" render={props => (
               <React.Fragment>
                 <SortMenus sortMenus={this.sortMenus} />
-                <Menus menus={menus} />
+                <Menus menus={currentMenus} />
+                <Pagination 
+                  currentPage={currentPage}
+                  lastPage={lastPage}
+                  prevPage={this.prevPage}
+                  nextPage={this.nextPage}
+                />
               </React.Fragment>
             )} />
             <Route exact path="/menus/:id" component={MenuItemDetail} />
