@@ -23,14 +23,15 @@ export class MenuItemDetail extends Component {
     return (
       <div>
         <Link className='btn' to='/menus'>BACK</Link>
-        {menu ? (
+        { 
+          menu ? 
           <React.Fragment>
             <h2>{ menu.name }</h2>
             <p>{ menu.description }</p>
           </React.Fragment>
-        ) : (
-          <h2>Loading...</h2>
-        )}
+          : 
+          <h2>Loading...</h2> 
+        }
       </div>
     )
   }
