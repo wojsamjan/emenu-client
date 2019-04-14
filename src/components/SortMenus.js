@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 
 export class SortMenus extends Component {
@@ -17,6 +18,11 @@ export class SortMenus extends Component {
       </div>
     )
   }
+}
+
+// PropTypes
+SortMenus.propTypes = {
+  sortMenus: PropTypes.func.isRequired
 }
 
 export default SortMenus
