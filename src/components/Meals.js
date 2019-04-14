@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 import MealItem from './MealItem';
 
@@ -11,6 +12,11 @@ export class Meals extends Component {
       </ul>
     )
   }
+}
+
+// PropTypes
+Meals.propTypes = {
+  meals: PropTypes.array.isRequired
 }
 
 export default Meals
