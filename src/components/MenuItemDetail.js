@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import Meals from './Meals';
 
 
 export class MenuItemDetail extends Component {
@@ -16,22 +18,23 @@ export class MenuItemDetail extends Component {
       .then(res => this.setState({ menu: res.data }));
   }
 
-
   render() {
-    const menu = this.state.menu;
+    const { menu } = this.state;
 
     return (
       <div>
-        <Link className='btn' to='/menus'>BACK</Link>
+        
         { 
           menu ? 
           <React.Fragment>
             <h2>{ menu.name }</h2>
             <p>{ menu.description }</p>
+            <Meals meals={menu.meals} />
           </React.Fragment>
           : 
           <h2>Loading...</h2> 
         }
+        <Link className='btn' to='/menus'>BACK</Link>
       </div>
     )
   }
