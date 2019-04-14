@@ -22,7 +22,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/api/menu/menus/?format=json')
+    // axios.get('http://127.0.0.1:8000/api/menu/menus/?format=json')
+    axios.get('https://connectis-server.herokuapp.com/api/menu/menus/?format=json')
       .then(res => this.setState({ menus: res.data
         .filter(m => m.meals.length !== 0)
         .sort((a, b) => a.id - b.id) }));
