@@ -6,7 +6,9 @@ export class SortMenus extends Component {
   renderHeading = (sortBy, text) => {
     const { sortMenus } = this.props;
     return (
-      <h2 className="btn" style={{flex: '1'}} onClick={() => sortMenus(sortBy)}>{text}</h2>
+      <h2 className="btn" style={sortMenusStyle} onClick={() => sortMenus(sortBy)}>
+        {text}
+      </h2>
     );
   }
 
@@ -24,6 +26,11 @@ export class SortMenus extends Component {
 // PropTypes
 SortMenus.propTypes = {
   sortMenus: PropTypes.func.isRequired
+}
+
+const sortMenusStyle = {
+  flex: '1',
+  textAlign: 'center'
 }
 
 export default SortMenus
