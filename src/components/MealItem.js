@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 
 export class MealItem extends Component {
@@ -11,6 +12,11 @@ export class MealItem extends Component {
       </li>
     )
   }
+}
+
+// PropTypes
+MealItem.propTypes = {
+  meal: PropTypes.object.isRequired
 }
 
 const mealItemStyle = {
