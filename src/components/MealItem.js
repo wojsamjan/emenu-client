@@ -27,8 +27,7 @@ MealItem.propTypes = {
 const mealItemStyle = {
   background: '#f4f4f4',
   padding: '10px',
-  borderBottom: '1px #ccc dotted',
-  cursor: 'pointer'
+  borderBottom: '1px #ccc dotted'
 }
 
 export default MealItem

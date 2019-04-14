@@ -15,9 +15,9 @@ export class Pagination extends Component {
     return (
       <div style={{ display: 'flex' }}>
         <ul>
-          { currentPage > 1 ? this.renderListItem('prev', prevPage, 'Prev') : '' }
+          {currentPage > 1 ? this.renderListItem('prev', prevPage, 'Poprzednia') : '' }
           { this.renderListItem('current', null, currentPage) }
-          { currentPage < lastPage ? this.renderListItem('next', nextPage, 'Next') : ''}
+          {currentPage < lastPage ? this.renderListItem('next', nextPage, 'Następna') : ''}
         </ul>
       </div>
     )

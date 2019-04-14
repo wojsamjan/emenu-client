@@ -1,9 +1,9 @@
 import axios from 'axios';
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import Meals from './Meals';
+
+
 
 
 export class MenuDetail extends Component {
@@ -35,7 +35,7 @@ export class MenuDetail extends Component {
           : 
           <h2 style={ menuDetailStyle }>Loading...</h2> 
         }
-        <Link className='btn' to='/menus'>BACK</Link>
+        <Link className='btn' to='/menus'>POWRÓT</Link>
       </div>
     )
   }
