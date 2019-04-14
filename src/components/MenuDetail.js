@@ -30,7 +30,7 @@ export class MenuDetail extends Component {
               <h2>{ menu.name }</h2>
               <p>{ menu.description }</p>
             </div>
-            <Meals meals={menu.meals} />
+            <Meals meals={menu.meals.sort((a, b) => a.id - b.id)} />
           </React.Fragment>
           : 
           <h2 style={ menuDetailStyle }>Loading...</h2> 
