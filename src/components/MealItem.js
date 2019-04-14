@@ -13,7 +13,7 @@ export class MealItem extends Component {
       <li style={ mealItemStyle }>
         <h3>{ name }</h3>
         { this.renderVeganInfo(is_vegan) }
-        <p>{ id } | { description } | { price } | { time_minutes }min</p>
+        <p>ID: { id } | { description } | { price }zł | { time_minutes }min</p>
       </li>
     )
   }
