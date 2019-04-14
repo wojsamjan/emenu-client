@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import Meals from './Meals';
 
 
-
-
 export class MenuDetail extends Component {
   state = {
     menu: null
