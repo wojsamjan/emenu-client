@@ -57,8 +57,8 @@ class App extends Component {
 
   sortAsc = (p) => {
     const { menus } = this.state;
-    if (p === 'name')
-      this.setState({menus: menus.sort((a, b) => a.name > b.name ? 1 : -1)})
+    if (p === 'id' || p === 'name')
+      this.setState({menus: menus.sort((a, b) => a[p] > b[p] ? 1 : -1)})
     else if (p === 'meals')
       this.setState({menus: menus.sort((a, b) => a.meals.length - b.meals.length)})
   }
@@ -72,9 +72,12 @@ class App extends Component {
     }
     else 
     {
-      if (p === 'name') this.sortByName(p)
-      else if (p === 'meals') this.sortByMeals(p)
-      this.toggleOrder(p)
+      if (p !== 'id')
+      {
+        if (p === 'name') this.sortByName(p)
+        else if (p === 'meals') this.sortByMeals(p)
+        this.toggleOrder(p)
+      }
     }
   }
 

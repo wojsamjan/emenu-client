@@ -13,8 +13,9 @@ export class SortMenus extends Component {
   render() {
     return (
       <div style={{ display: 'flex' }}>
-        { this.renderHeading('name', 'Sortuj Nazwa') }
-        { this.renderHeading('meals', 'Sortuj Liczba Dań') }
+        { this.renderHeading('id', 'Sortuj domyślnie') }
+        { this.renderHeading('name', 'Sortuj po nazwie') }
+        { this.renderHeading('meals', 'Sortuj po liczbie dań') }
       </div>
     )
   }
