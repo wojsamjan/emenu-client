@@ -7,7 +7,7 @@ import Header from './components/layout/Header';
 import Pagination from './components/Pagination';
 import Menus from './components/Menus';
 import SortMenus from './components/SortMenus';
-import MenuItemDetail from './components/MenuItemDetail';
+import MenuDetail from './components/MenuDetail';
 
 import './App.css';
 
@@ -113,7 +113,7 @@ class App extends Component {
                 />
               </React.Fragment>
             )} />
-            <Route exact path="/menus/:id" component={MenuItemDetail} />
+            <Route exact path="/menus/:id" component={MenuDetail} />
           </div>
         </div>
       </Router>

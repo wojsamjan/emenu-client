@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Meals from './Meals';
 
 
-export class MenuItemDetail extends Component {
+export class MenuDetail extends Component {
   state = {
     menu: null
   }
@@ -23,16 +23,17 @@ export class MenuItemDetail extends Component {
 
     return (
       <div>
-        
         { 
           menu ? 
           <React.Fragment>
-            <h2>{ menu.name }</h2>
-            <p>{ menu.description }</p>
+            <div style={ menuDetailStyle }>
+              <h2>{ menu.name }</h2>
+              <p>{ menu.description }</p>
+            </div>
             <Meals meals={menu.meals} />
           </React.Fragment>
           : 
-          <h2>Loading...</h2> 
+          <h2 style={ menuDetailStyle }>Loading...</h2> 
         }
         <Link className='btn' to='/menus'>BACK</Link>
       </div>
@@ -40,4 +41,11 @@ export class MenuItemDetail extends Component {
   }
 }
 
-export default MenuItemDetail
+const menuDetailStyle = {
+  background: '#ccc',
+  borderBottom: '1px #4f4f4f dotted',
+  textAlign: 'center',
+  padding: '10px'
+}
+
+export default MenuDetail
