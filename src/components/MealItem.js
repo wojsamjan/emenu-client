@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 
 
 export class MealItem extends Component {
+  renderVeganInfo = (isVegan) => {
+    if (isVegan) return <p style={{ fontWeight: "bold" }}>*[danie wegańskie]</p>
+  }
+
   render() {
-    const { id, name, description } = this.props.meal;
+    const { id, name, description, price, time_minutes, is_vegan } = this.props.meal;
     return (
-      <li style={mealItemStyle}>
-        <h4>{ name }</h4>
-        <p>{ id } | { description }</p>
+      <li style={ mealItemStyle }>
+        <h3>{ name }</h3>
+        { this.renderVeganInfo(is_vegan) }
+        <p>{ id } | { description } | { price } | { time_minutes }min</p>
       </li>
     )
   }
