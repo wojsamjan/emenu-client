@@ -34,6 +34,7 @@ a {
   background: #666;
 }
 
+/* 404 */
 .btn-home {
   display: inline-block;
   border: none;
@@ -47,3 +48,18 @@ a {
   background: #555;
   color: #fff;
 }
+
+/* SortMenus.js */
+.sort-container { 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  } 
+.sort-container > h2 {
+  width: calc(100% / 3);
+}
+
+.sort-container > h2:nth-child(1) {
+  width: 100%;
+} 
