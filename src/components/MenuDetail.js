@@ -17,8 +17,12 @@ export class MenuDetail extends Component {
 
     // axios.get(`http://127.0.0.1:8000/api/menu/menus/${id}/?format=json`)
     axios.get(`https://connectis-server.herokuapp.com/api/menu/menus/${id}/?format=json`)
-      .then(res => this.setState({ menu: res.data }))
-      .catch(err => this.setState({ menu: 404 }));
+      .then(res => {
+        if (res.data.meals.length > 0) this.setState({ menu: res.data })
+        else this.setState({ menu: 404 })
+      })
+      .catch(err => this.setState({ menu: 404 })
+    );
   }
 
   render() {
