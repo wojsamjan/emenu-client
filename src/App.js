@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/layout/Header';
@@ -9,6 +9,7 @@ import Pagination from './components/Pagination';
 import Menus from './components/Menus';
 import SortMenus from './components/SortMenus';
 import MenuDetail from './components/MenuDetail';
+import NotFound from './components/pages/NotFound';
 
 import './App.css';
 
@@ -23,8 +24,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // axios.get('http://127.0.0.1:8000/api/menu/menus/?format=json')
     axios.get('https://connectis-server.herokuapp.com/api/menu/menus/?format=json')
+    // axios.get('http://127.0.0.1:8000/api/menu/menus/?format=json')
       .then(res => this.setState({ menus: res.data
         .filter(m => m.meals.length !== 0)
         .sort((a, b) => a.id - b.id) }));
@@ -107,19 +108,22 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <Header />
-            <Route exact path="/menus/" render={props => (
-              <React.Fragment>
-                <SortMenus sortMenus={this.sortMenus} />
-                <Menus menus={currentMenus} />
-                <Pagination 
-                  currentPage={currentPage}
-                  lastPage={lastPage}
-                  prevPage={this.prevPage}
-                  nextPage={this.nextPage}
-                />
-              </React.Fragment>
-            )} />
-            <Route exact path="/menus/:id" component={MenuDetail} />
+            <Switch>
+              <Route exact path="/menus/" render={props => (
+                <React.Fragment>
+                  <SortMenus sortMenus={this.sortMenus} />
+                  <Menus menus={currentMenus} />
+                  <Pagination 
+                    currentPage={currentPage}
+                    lastPage={lastPage}
+                    prevPage={this.prevPage}
+                    nextPage={this.nextPage}
+                  />
+                </React.Fragment>
+              )} />
+              <Route exact path="/menus/:id" component={MenuDetail} />
+              <Route component={NotFound} />
+            </Switch>
           </div>
         </div>
       </Router>
