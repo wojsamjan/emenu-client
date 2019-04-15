@@ -15,10 +15,9 @@ export class SortMenus extends Component {
   render() {
     return (
       <div className="sort-container">
-        <h2 style={titleStyle}>Sortowanie</h2>
-        { this.renderHeading('id', 'domyślne') }
-        { this.renderHeading('name', 'po nazwie') }
-        { this.renderHeading('meals', 'po liczbie dań') }
+        { this.renderHeading('id', 'Sortuj domyślnie') }
+        { this.renderHeading('name', 'Sortuj po nazwie') }
+        { this.renderHeading('meals', 'Sortuj po liczbie dań') }
       </div>
     )
   }
@@ -29,15 +28,7 @@ SortMenus.propTypes = {
   sortMenus: PropTypes.func.isRequired
 }
 
-const titleStyle = {
-  background: '#555',
-  color: '#fff',
-  padding: '7px 20px',
-  textAlign: 'center',
-}
-
 const sortMenusStyle = {
-  // flex: '1',
   textAlign: 'center'
 }
 

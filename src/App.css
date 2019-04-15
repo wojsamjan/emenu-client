@@ -57,22 +57,17 @@ a {
   flex-wrap: wrap;  
   } 
 
-@media screen and (max-width: 520px) {
-  /* change root font-size */
-  html {
-    font-size: 12.5px;
-  }
-  .sort-container > h2 {
-    width: calc(100% / 1);
-    font-size: 1rem;
-  }
+.sort-container > h2 {
+  width: calc(100% / 3);
 }
 
-@media screen and (min-width: 768px) {
-  .sort-container > h2 {
-    width: calc(100% / 3);
+@media screen and (max-width: 905px) {
+  /* change root font-size */
+  html {
+    font-size: 14px;
   }
-  .sort-container > h2:first-child {
+  .sort-container > h2 {
     width: 100%;
+    font-size: 1rem;
   }
 }
