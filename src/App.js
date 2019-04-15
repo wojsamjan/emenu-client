@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/layout/Header';
 import Pagination from './components/Pagination';
@@ -102,6 +103,7 @@ class App extends Component {
 
     return (
       <Router>
+      {/* <Router basename="/"> */}
         <div className="App">
           <div className="container">
             <Header />

@@ -11,6 +11,7 @@
     "react-scripts": "2.1.8"
   },
   "homepage": "https://wojsamjan.github.io/emenu-client",
+  "homepage": "https://emenu-client.netlify.com",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
