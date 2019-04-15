@@ -33,3 +33,17 @@ a {
 .btn:hover {
   background: #666;
 }
+
+.btn-home {
+  display: inline-block;
+  border: none;
+  background: #fff;
+  color: #333;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+.btn-home:hover {
+  background: #555;
+  color: #fff;
+}
