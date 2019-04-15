@@ -6,10 +6,10 @@ export class NotFound extends Component {
   render() {
     return (
       <div style={notFoundStyle}>
-        <div style={{ fontSize: '5rem' }}>
+        <div style={{ fontSize: '3rem' }}>
           <h2>404</h2>
           <p>Not Found</p>
-          <Link className="btn-home" style={{ fontSize: '2rem' }} to='/menus'>HOME</Link>
+          <Link className="btn-home" style={{ fontSize: '1.5rem' }} to='/menus'>HOME</Link>
         </div>
       </div>
     )
